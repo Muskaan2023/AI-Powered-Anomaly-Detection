@@ -66,10 +66,10 @@ Feature Engineering includes:
 
 Model Performance:
 
-- Accuracy: **94.17%**
-- Precision: **80.66%**
-- Recall: **80.48%**
-- F1 Score: **80.57%**
+- Accuracy: **96.64%**
+- Precision: **88.80%**
+- Recall: **88.80%**
+- F1 Score: **88.80%**
 
 ---
 
@@ -168,11 +168,11 @@ streamlit run dashboard/app.py
 
 ### High Risk Alerts
 
-![alt text](<Screenshot 2026-08-01 215513.png>)
+![alt text](image-1.png)
 
 ### Analytics Dashboard
 
-![alt text](<Screenshot 2026-08-01 215452-2.png>)
+![alt text](image.png)
 
 ---
 
