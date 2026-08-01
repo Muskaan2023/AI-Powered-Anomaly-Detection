@@ -4,7 +4,7 @@ import random
 from datetime import datetime, timedelta
 
 # Read users dataset
-users = pd.read_csv("D:/AI-Powered -Anomaly -Detection/data/users.csv")
+users = pd.read_csv("D:/AI-Powered-Anomaly-Detection/data/users.csv")
 
 fake = Faker()
 
@@ -134,7 +134,7 @@ for index, user in users.iterrows():
 df_logs = pd.DataFrame(logs)
 
 df_logs.to_csv(
-    "D:/AI-Powered -Anomaly -Detection/data/normal_logs.csv",
+    "D:/AI-Powered-Anomaly-Detection/data/normal_logs.csv",
     index=False
 )
 

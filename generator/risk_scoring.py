@@ -1,7 +1,7 @@
 import pandas as pd
 
 data = pd.read_csv(
-    "D:/AI-Powered -Anomaly -Detection/data/predictions.csv"
+    "D:/AI-Powered-Anomaly-Detection/data/predictions.csv"
 )
 def calculate_risk(row):
 
@@ -39,7 +39,7 @@ def severity(score):
 data["severity"] = data["final_risk_score"].apply(severity)
 
 data.to_csv(
-    "D:/AI-Powered -Anomaly -Detection/data/final_results.csv",
+    "D:/AI-Powered-Anomaly-Detection/data/final_results.csv",
     index=False
 )
 

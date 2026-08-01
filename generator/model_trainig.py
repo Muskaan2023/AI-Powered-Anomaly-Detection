@@ -1,6 +1,6 @@
 import pandas as pd
 data = pd.read_csv(
-    "D:/AI-Powered -Anomaly -Detection/data/final_dataset.csv"
+    "D:/AI-Powered-Anomaly-Detection/data/final_dataset.csv"
 )
 
 print(data.head())
@@ -22,7 +22,7 @@ predictions = model.predict(X)
 data["prediction"] = predictions
 
 data.to_csv(
-    "D:/AI-Powered -Anomaly -Detection/data/predictions.csv",
+    "D:/AI-Powered-Anomaly-Detection/data/predictions.csv",
     index=False
 )
 

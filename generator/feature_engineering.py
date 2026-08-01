@@ -1,5 +1,5 @@
 import pandas as pd
-logs=pd.read_csv("D:/AI-Powered -Anomaly -Detection/data/attack_logs.csv")
+logs=pd.read_csv("D:/AI-Powered-Anomaly-Detection/data/attack_logs.csv")
 
 logs["timestamp"] = pd.to_datetime(logs["timestamp"])
 
@@ -20,7 +20,7 @@ logs["high_risk"] = (
 ).astype(int)
 
 logs.to_csv(
-"D:/AI-Powered -Anomaly -Detection/data/final_dataset.csv",
+"D:/AI-Powered-Anomaly-Detection/data/final_dataset.csv",
 index=False
 )
 

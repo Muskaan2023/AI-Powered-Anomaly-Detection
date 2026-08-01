@@ -1,6 +1,6 @@
 import pandas as pd
 import random
-logs=pd.read_csv("D:/AI-Powered -Anomaly -Detection/data/normal_logs.csv")
+logs=pd.read_csv("D:/AI-Powered-Anomaly-Detection/data/normal_logs.csv")
 attack_logs=logs.copy()
 attack_count=int(len(attack_logs)*0.15)
 attack_indices=random.sample(range(len(attack_logs)),attack_count)
@@ -66,7 +66,7 @@ for index in attack_indices:
     attack_logs.loc[index, "login_status"] = "Failed"
 
     attack_logs.loc[index, "label"] = "Attack"
-attack_logs.to_csv("D:/AI-Powered -Anomaly -Detection/data/attack_logs.csv",
+attack_logs.to_csv("D:/AI-Powered-Anomaly-Detection/data/attack_logs.csv",
     index=False
 )
 print(attack_logs.head())

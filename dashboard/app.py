@@ -47,7 +47,7 @@ st.sidebar.markdown("---")
 
 
 data = pd.read_csv(
-    "D:/AI-Powered -Anomaly -Detection/data/final_results.csv"
+    "D:/AI-Powered-Anomaly-Detection/data/final_results.csv"
 )
 
 st.sidebar.title("Filters")

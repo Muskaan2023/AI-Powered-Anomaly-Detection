@@ -1,7 +1,7 @@
 import pandas as pd
 
 data = pd.read_csv(
-    "D:/AI-Powered -Anomaly -Detection/data/predictions.csv"
+    "D:/AI-Powered-Anomaly-Detection/data/predictions.csv"
 )
 data["actual"] = data["label"].map({
     "Normal":0,

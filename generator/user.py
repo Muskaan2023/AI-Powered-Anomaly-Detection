@@ -103,7 +103,7 @@ def create_users(number_of_users):
         }
         users.append(user)
     df=pd.DataFrame(users)
-    df.to_csv("D:/AI-Powered -Anomaly -Detection/data/users.csv",index=False)
+    df.to_csv("D:/AI-Powered-Anomaly-Detection/data/users.csv",index=False)
     return df
 if __name__=="__main__":
     create_users(1000)
