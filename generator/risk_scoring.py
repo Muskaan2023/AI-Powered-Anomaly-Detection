@@ -43,7 +43,7 @@ def severity(score):
 data["severity"] = data["final_risk_score"].apply(severity)
 
 data.to_csv(
-    "D:/AI-Powered-Anomaly-Detection/data/final_results.csv",
+    DATA_DIR /"final_results.csv",
     index=False
 )
 
