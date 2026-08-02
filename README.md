@@ -110,13 +110,13 @@ AI-Powered-Anomaly-Detection/
 │   └── app.py
 │
 ├── generator/
-│   ├── user_generator.py
+│   ├── user.py
 │   ├── normal_logs.py
 │   ├── attack_generator.py
 │   ├── feature_engineering.py
 │   ├── model_trainig.py
 │   ├── evaluation.py
-│   └── risk_scoring.py
+│   └── risk_score.py
 │
 ├── data/
 │   ├── users.csv
