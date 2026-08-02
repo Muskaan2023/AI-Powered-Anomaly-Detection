@@ -26,6 +26,7 @@ model.fit(X)
 predictions = model.predict(X)
 data["prediction"] = predictions
 
+
 data.to_csv(
     DATA_DIR / "predictions.csv",
     index=False
