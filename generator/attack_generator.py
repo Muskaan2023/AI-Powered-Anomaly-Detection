@@ -1,6 +1,12 @@
 import pandas as pd
 import random
-logs=pd.read_csv("D:/AI-Powered-Anomaly-Detection/data/normal_logs.csv")
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
+logs = pd.read_csv(DATA_DIR / "normal_logs.csv")
 attack_logs=logs.copy()
 attack_count=int(len(attack_logs)*0.15)
 attack_indices=random.sample(range(len(attack_logs)),attack_count)
@@ -66,9 +72,7 @@ for index in attack_indices:
     attack_logs.loc[index, "login_status"] = "Failed"
 
     attack_logs.loc[index, "label"] = "Attack"
-attack_logs.to_csv("D:/AI-Powered-Anomaly-Detection/data/attack_logs.csv",
-    index=False
-)
+attack_logs.to_csv(DATA_DIR / "attack_logs.csv", index=False)
 print(attack_logs.head())
 print("Total Events:", len(attack_logs))
 print("Attack Events:", attack_count)

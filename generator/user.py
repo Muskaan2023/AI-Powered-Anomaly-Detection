@@ -1,8 +1,13 @@
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import random
 from faker import Faker
 
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
 fake=Faker()
 
 departments=[
@@ -103,7 +108,7 @@ def create_users(number_of_users):
         }
         users.append(user)
     df=pd.DataFrame(users)
-    df.to_csv("D:/AI-Powered-Anomaly-Detection/data/users.csv",index=False)
+    df.to_csv(DATA_DIR / "users.csv", index=False)
     return df
 if __name__=="__main__":
     create_users(1000)

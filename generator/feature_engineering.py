@@ -1,5 +1,10 @@
 import pandas as pd
-logs=pd.read_csv("D:/AI-Powered-Anomaly-Detection/data/attack_logs.csv")
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
+logs = pd.read_csv(DATA_DIR / "attack_logs.csv")
 
 logs["timestamp"] = pd.to_datetime(logs["timestamp"])
 
@@ -20,8 +25,8 @@ logs["high_risk"] = (
 ).astype(int)
 
 logs.to_csv(
-"D:/AI-Powered-Anomaly-Detection/data/final_dataset.csv",
-index=False
+    DATA_DIR / "final_dataset.csv",
+    index=False
 )
 
 print(logs.head())

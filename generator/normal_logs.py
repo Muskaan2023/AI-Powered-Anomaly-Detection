@@ -2,9 +2,13 @@ import pandas as pd
 from faker import Faker
 import random
 from datetime import datetime, timedelta
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
 
 # Read users dataset
-users = pd.read_csv("D:/AI-Powered-Anomaly-Detection/data/users.csv")
+users = pd.read_csv(DATA_DIR / "users.csv")
 
 fake = Faker()
 
@@ -134,7 +138,7 @@ for index, user in users.iterrows():
 df_logs = pd.DataFrame(logs)
 
 df_logs.to_csv(
-    "D:/AI-Powered-Anomaly-Detection/data/normal_logs.csv",
+    DATA_DIR / "normal_logs.csv",
     index=False
 )
 

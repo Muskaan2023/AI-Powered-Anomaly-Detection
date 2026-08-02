@@ -1,8 +1,12 @@
 import pandas as pd
+from pathlib import Path
 
-data = pd.read_csv(
-    "D:/AI-Powered-Anomaly-Detection/data/predictions.csv"
-)
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+DATA_DIR = BASE_DIR / "data"
+
+data = pd.read_csv(DATA_DIR / "predictions.csv")
+
 def calculate_risk(row):
 
     score = 0

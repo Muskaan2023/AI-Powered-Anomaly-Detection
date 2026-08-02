@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from pathlib import Path
 
 st.set_page_config(
     page_title="AI Powered SOC Dashboard",
@@ -44,11 +45,11 @@ st.sidebar.title("🛡 SOC Controls")
 st.sidebar.markdown("---")
 
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_PATH = BASE_DIR / "data" / "final_dataset.csv"
 
+data = pd.read_csv(DATA_PATH)
 
-data = pd.read_csv(
-    "D:/AI-Powered-Anomaly-Detection/data/final_results.csv"
-)
 
 st.sidebar.title("Filters")
 

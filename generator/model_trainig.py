@@ -1,6 +1,11 @@
 import pandas as pd
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
 data = pd.read_csv(
-    "D:/AI-Powered-Anomaly-Detection/data/final_dataset.csv"
+    DATA_DIR / "final_dataset.csv"
 )
 
 print(data.head())
@@ -22,7 +27,7 @@ predictions = model.predict(X)
 data["prediction"] = predictions
 
 data.to_csv(
-    "D:/AI-Powered-Anomaly-Detection/data/predictions.csv",
+    DATA_DIR / "predictions.csv",
     index=False
 )
 
