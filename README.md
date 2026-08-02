@@ -114,13 +114,16 @@ AI-Powered-Anomaly-Detection/
 │   ├── normal_logs.py
 │   ├── attack_generator.py
 │   ├── feature_engineering.py
-│   └── train_model.py
+│   ├── model_trainig.py
+│   ├── evaluation.py
+│   └── risk_scoring.py
 │
 ├── data/
 │   ├── users.csv
-│   ├── normal_logs.csv
+|   ├── normal_logs.csv
 │   ├── attack_logs.csv
-│   └── final_dataset.csv
+│   ├── predictions.csv
+│   └── final_results.csv
 │
 ├── screenshots/
 │
