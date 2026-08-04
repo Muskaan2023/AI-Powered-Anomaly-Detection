@@ -63,14 +63,14 @@ filtered_data = data[
     data["severity"].isin(severity)
 ]
 
-search_user = st.sidebar.text_input(
-    "Search User ID"
+Employee = st.sidebar.text_input(
+    "🔎 Search Employee ID"
 )
 
-if search_user:
+if Employee:
     filtered_data = filtered_data[
         filtered_data["entity_id"].str.contains(
-            search_user,
+            Employee,
             case=False
         )
     ]
@@ -94,12 +94,25 @@ high_alerts = len(
     filtered_data[filtered_data["severity"]=="High"]
 )
 
+high_count = len(filtered_data[filtered_data["severity"] == "High"])
+
+if high_count > 0:
+    st.error(f"🚨 {high_count} High Severity Alerts Need Immediate Investigation")
+else:
+    st.success("✅ No High Severity Alerts")
+
 tab1, tab2, tab3 = st.tabs([
     "📊 Dashboard",
     "🚨 Alerts",
-    "👤 User Investigation"
+    "📜 Logs"
 ])
 
+st.subheader("📜 Complete Security Logs")
+
+st.dataframe(filtered_data.head(100))
+
+if st.checkbox("Show All Logs"):
+    st.dataframe(filtered_data)
 with tab1:
     st.write("Charts will be displayed here.")
 
@@ -118,16 +131,17 @@ with tab2:
     ]
 
     st.dataframe(
-        high_alerts_df[
-            [
-                "entity_id",
-                "timestamp",
-                "attack_type",
-                "severity",
-                "final_risk_score"
-            ]
+    high_alerts_df[
+        [
+            "timestamp",
+            "entity_id",
+            "department",
+            "attack_type",
+            "final_risk_score",
+            "severity"
         ]
-    )
+    ].sort_values("timestamp", ascending=False).head(20)
+)
 
 col1,col2,col3,col4 = st.columns(4)
 
@@ -282,9 +296,7 @@ browser = st.sidebar.multiselect(
     options=data["browser"].unique(),
     default=data["browser"].unique()
 )
-search_user = st.sidebar.text_input(
-    "🔍 Search User ID"
-)
+
 
 filtered_data = data[
     (data["severity"].isin(severity)) &
@@ -293,10 +305,10 @@ filtered_data = data[
     (data["browser"].isin(browser))
 ]
 
-if search_user:
+if Employee:
     filtered_data = filtered_data[
         filtered_data["entity_id"].str.contains(
-            search_user,
+            Employee,
             case=False,
             na=False
         )
@@ -360,6 +372,7 @@ template="plotly_dark"
 
 st.plotly_chart(fig,use_container_width=True)
 
+st.subheader("👤 Top 10 Risky Employees")
 top_users = (
 
 filtered_data
@@ -371,15 +384,16 @@ filtered_data
 .sort_values(ascending=False)
 
 .head(10)
-
 .reset_index()
+
+
 
 )
 
 
-st.subheader("🔥 Top 10 Highest Risk Users")
 
-st.bar_chart(top_users)
+
+
 
 fig = px.bar(
 
